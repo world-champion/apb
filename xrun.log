@@ -1,0 +1,576 @@
+xrun(64): 22.03-s002: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	22.03-s002: Started on Sep 12, 2023 at 10:43:38 UTC
+xrun
+	-f run.f
+		-64
+		-uvmhome /apps/cadence/XCELIUM/22.03.002/tools/methodology/UVM/CDNS-1.1d
+		-incdir ../sv
+		clkgen.sv
+		../sv/apb_pkg.sv
+		../sv/apb_if.sv
+		../dut/apb_slave.sv
+		tb_top.sv
+		hw_top.sv
+		-timescale 1ns/1ns
+		+UVM_TESTNAME=simple_test
+		+UVM_VERBOSITY=UVM_LOW
+		+SVSEED=random
+	-gui
+	-access +rwc
+	-s
+
+   User defined plus("+") options:
+	+UVM_VERBOSITY=UVM_LOW
+
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+SVSEED set randomly from command line: 990005821
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /apps/cadence/XCELIUM/22.03.002/tools/xcelium/files/xmsimrc
+xcelium> source /apps/cadence/XCELIUM/22.03.002/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> # Restoring simulation environment...
+xcelium> input -quiet .reinvoke.sim
+xcelium> file delete .reinvoke.sim
+xcelium> probe -create -shm hw_top.dut.mem
+Created probe 2
+xcelium> run
+----------------------------------------------------------------
+CDNS-UVM-1.1d (22.03-s002)
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test simple_test...
+UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+-----------------------------------------------------------------------
+Name                          Type                     Size  Value     
+-----------------------------------------------------------------------
+uvm_test_top                  simple_test              -     @2672     
+  env                         top                      -     @2743     
+    apb                       apb_env                  -     @2786     
+      agent                   apb_agent                -     @2818     
+        driver                apb_master_driver        -     @3474     
+          rsp_port            uvm_analysis_port        -     @3625     
+            recording_detail  integral                 32    'd1       
+          seq_item_port       uvm_seq_item_pull_port   -     @3576     
+            recording_detail  integral                 32    'd1       
+          num_sent            integral                 32    'h0       
+          recording_detail    integral                 32    'd1       
+        monitor               apb_master_monitor       -     @2853     
+          num_pkt_col         integral                 32    'h0       
+          recording_detail    integral                 32    'd1       
+        sequencer             apb_master_sequencer     -     @2848     
+          rsp_export          uvm_analysis_export      -     @2945     
+            recording_detail  integral                 32    'd1       
+          seq_item_export     uvm_seq_item_pull_imp    -     @3495     
+            recording_detail  integral                 32    'd1       
+          recording_detail    integral                 32    'd1       
+          arbitration_queue   array                    0     -         
+          lock_queue          array                    0     -         
+          num_last_reqs       integral                 32    'd1       
+          num_last_rsps       integral                 32    'd1       
+        is_active             uvm_active_passive_enum  1     UVM_ACTIVE
+        recording_detail      integral                 32    'd1       
+      recording_detail        integral                 32    'd1       
+-----------------------------------------------------------------------
+
+SDI/Verilog Transaction Recording Facility Version 22.03-s002
+UVM_INFO ../sv/apb_sequence.sv(48) @ 0: uvm_test_top.env.apb.agent.sequencer@@single_or_more_packet [single_or_more_packet] Executing APB_RAND_SEQ 16 times...
+UVM_INFO ../sv/apb_master_driver.sv(27) @ 10: uvm_test_top.env.apb.agent.driver [apb_master_driver] Detected Reset Done
+UVM_INFO ../sv/apb_master_monitor.sv(26) @ 10: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Detected Reset Done
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 10: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3754                                                     
+  paddr                        integral    32    'he4                                                      
+  pwdata                       integral    32    'h645b325                                                 
+  pwrite                       integral    1     'h1                                                       
+  deley                        integral    32    'he                                                       
+  begin_time                   time        64    10                                                        
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 1500: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 1500: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s-------------------------------------
+Name      Type        Size  Value    
+-------------------------------------
+pkt       apb_packet  -     @3769    
+  paddr   integral    32    'he4     
+  pwdata  integral    32    'h645b325
+  pwrite  integral    1     'h0      
+  deley   integral    32    'h0      
+-------------------------------------
+
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 1600: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3819                                                     
+  paddr                        integral    32    'hde                                                      
+  pwdata                       integral    32    'ha5ea9100                                                
+  pwrite                       integral    1     'h1                                                       
+  deley                        integral    32    'h9                                                       
+  begin_time                   time        64    1600                                                      
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 2600: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 2600: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s--------------------------------------
+Name      Type        Size  Value     
+--------------------------------------
+pkt       apb_packet  -     @3769     
+  paddr   integral    32    'hde      
+  pwdata  integral    32    'ha5ea9100
+  pwrite  integral    1     'h0       
+  deley   integral    32    'h0       
+--------------------------------------
+
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 2700: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3853                                                     
+  paddr                        integral    32    'h9                                                       
+  pwdata                       integral    32    'hdd0f730b                                                
+  pwrite                       integral    1     'h0                                                       
+  deley                        integral    32    'h1                                                       
+  begin_time                   time        64    2700                                                      
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 2900: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 2900: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s---------------------------------
+Name      Type        Size  Value
+---------------------------------
+pkt       apb_packet  -     @3769
+  paddr   integral    32    'h9  
+  pwdata  integral    32    'h0  
+  pwrite  integral    1     'h0  
+  deley   integral    32    'h0  
+---------------------------------
+
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 2950: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3701                                                     
+  paddr                        integral    32    'h61                                                      
+  pwdata                       integral    32    'h41c512bb                                                
+  pwrite                       integral    1     'h1                                                       
+  deley                        integral    32    'h13                                                      
+  begin_time                   time        64    2950                                                      
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 4900: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 4900: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s--------------------------------------
+Name      Type        Size  Value     
+--------------------------------------
+pkt       apb_packet  -     @3769     
+  paddr   integral    32    'h61      
+  pwdata  integral    32    'h41c512bb
+  pwrite  integral    1     'h0       
+  deley   integral    32    'h0       
+--------------------------------------
+
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 5000: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3744                                                     
+  paddr                        integral    32    'he9                                                      
+  pwdata                       integral    32    'hd72acbe3                                                
+  pwrite                       integral    1     'h0                                                       
+  deley                        integral    32    'h14                                                      
+  begin_time                   time        64    5000                                                      
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 7100: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 7100: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s---------------------------------
+Name      Type        Size  Value
+---------------------------------
+pkt       apb_packet  -     @3769
+  paddr   integral    32    'he9 
+  pwdata  integral    32    'h0  
+  pwrite  integral    1     'h0  
+  deley   integral    32    'h0  
+---------------------------------
+
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 7150: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3688                                                     
+  paddr                        integral    32    'h9f                                                      
+  pwdata                       integral    32    'h989194c7                                                
+  pwrite                       integral    1     'h1                                                       
+  deley                        integral    32    'h3                                                       
+  begin_time                   time        64    7150                                                      
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 7500: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 7500: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s--------------------------------------
+Name      Type        Size  Value     
+--------------------------------------
+pkt       apb_packet  -     @3769     
+  paddr   integral    32    'h9f      
+  pwdata  integral    32    'h989194c7
+  pwrite  integral    1     'h0       
+  deley   integral    32    'h0       
+--------------------------------------
+
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 7600: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3806                                                     
+  paddr                        integral    32    'h86                                                      
+  pwdata                       integral    32    'hf3080fc5                                                
+  pwrite                       integral    1     'h0                                                       
+  deley                        integral    32    'h3                                                       
+  begin_time                   time        64    7600                                                      
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 8000: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 8000: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s---------------------------------
+Name      Type        Size  Value
+---------------------------------
+pkt       apb_packet  -     @3769
+  paddr   integral    32    'h86 
+  pwdata  integral    32    'h0  
+  pwrite  integral    1     'h0  
+  deley   integral    32    'h0  
+---------------------------------
+
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 8050: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3858                                                     
+  paddr                        integral    32    'h9a                                                      
+  pwdata                       integral    32    'h12afafc6                                                
+  pwrite                       integral    1     'h0                                                       
+  deley                        integral    32    'hb                                                       
+  begin_time                   time        64    8050                                                      
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 9200: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 9200: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s---------------------------------
+Name      Type        Size  Value
+---------------------------------
+pkt       apb_packet  -     @3769
+  paddr   integral    32    'h9a 
+  pwdata  integral    32    'h0  
+  pwrite  integral    1     'h0  
+  deley   integral    32    'h0  
+---------------------------------
+
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 9250: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3695                                                     
+  paddr                        integral    32    'hdd                                                      
+  pwdata                       integral    32    'hc847a60e                                                
+  pwrite                       integral    1     'h1                                                       
+  deley                        integral    32    'h3                                                       
+  begin_time                   time        64    9250                                                      
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 9600: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 9600: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s--------------------------------------
+Name      Type        Size  Value     
+--------------------------------------
+pkt       apb_packet  -     @3769     
+  paddr   integral    32    'hdd      
+  pwdata  integral    32    'hc847a60e
+  pwrite  integral    1     'h0       
+  deley   integral    32    'h0       
+--------------------------------------
+
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 9700: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3755                                                     
+  paddr                        integral    32    'h51                                                      
+  pwdata                       integral    32    'hae8fb5cd                                                
+  pwrite                       integral    1     'h1                                                       
+  deley                        integral    32    'hb                                                       
+  begin_time                   time        64    9700                                                      
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 10900: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 10900: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s--------------------------------------
+Name      Type        Size  Value     
+--------------------------------------
+pkt       apb_packet  -     @3769     
+  paddr   integral    32    'h51      
+  pwdata  integral    32    'hae8fb5cd
+  pwrite  integral    1     'h0       
+  deley   integral    32    'h0       
+--------------------------------------
+
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 11000: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3766                                                     
+  paddr                        integral    32    'hf1                                                      
+  pwdata                       integral    32    'hc0d8d549                                                
+  pwrite                       integral    1     'h0                                                       
+  deley                        integral    32    'h7                                                       
+  begin_time                   time        64    11000                                                     
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 11800: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 11800: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s---------------------------------
+Name      Type        Size  Value
+---------------------------------
+pkt       apb_packet  -     @3769
+  paddr   integral    32    'hf1 
+  pwdata  integral    32    'h0  
+  pwrite  integral    1     'h0  
+  deley   integral    32    'h0  
+---------------------------------
+
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 11850: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3852                                                     
+  paddr                        integral    32    'hc3                                                      
+  pwdata                       integral    32    'h6c31a6df                                                
+  pwrite                       integral    1     'h0                                                       
+  deley                        integral    32    'h11                                                      
+  begin_time                   time        64    11850                                                     
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 13600: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 13600: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s---------------------------------
+Name      Type        Size  Value
+---------------------------------
+pkt       apb_packet  -     @3769
+  paddr   integral    32    'hc3 
+  pwdata  integral    32    'h0  
+  pwrite  integral    1     'h0  
+  deley   integral    32    'h0  
+---------------------------------
+
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 13650: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3707                                                     
+  paddr                        integral    32    'hc3                                                      
+  pwdata                       integral    32    'h451b3619                                                
+  pwrite                       integral    1     'h1                                                       
+  deley                        integral    32    'h11                                                      
+  begin_time                   time        64    13650                                                     
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 15400: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 15400: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s--------------------------------------
+Name      Type        Size  Value     
+--------------------------------------
+pkt       apb_packet  -     @3769     
+  paddr   integral    32    'hc3      
+  pwdata  integral    32    'h451b3619
+  pwrite  integral    1     'h0       
+  deley   integral    32    'h0       
+--------------------------------------
+
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 15500: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3747                                                     
+  paddr                        integral    32    'hf1                                                      
+  pwdata                       integral    32    'he4c59840                                                
+  pwrite                       integral    1     'h0                                                       
+  deley                        integral    32    'h13                                                      
+  begin_time                   time        64    15500                                                     
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 17500: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 17500: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s---------------------------------
+Name      Type        Size  Value
+---------------------------------
+pkt       apb_packet  -     @3769
+  paddr   integral    32    'hf1 
+  pwdata  integral    32    'h0  
+  pwrite  integral    1     'h0  
+  deley   integral    32    'h0  
+---------------------------------
+
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 17550: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3822                                                     
+  paddr                        integral    32    'h4f                                                      
+  pwdata                       integral    32    'h1a6050af                                                
+  pwrite                       integral    1     'h1                                                       
+  deley                        integral    32    'h3                                                       
+  begin_time                   time        64    17550                                                     
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 17900: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 17900: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s--------------------------------------
+Name      Type        Size  Value     
+--------------------------------------
+pkt       apb_packet  -     @3769     
+  paddr   integral    32    'h4f      
+  pwdata  integral    32    'h1a6050af
+  pwrite  integral    1     'h0       
+  deley   integral    32    'h0       
+--------------------------------------
+
+UVM_INFO ../sv/apb_master_driver.sv(30) @ 18000: uvm_test_top.env.apb.agent.driver [apb_master_driver] Sending Packet :
+%s-----------------------------------------------------------------------------------------------------------
+Name                           Type        Size  Value                                                     
+-----------------------------------------------------------------------------------------------------------
+req                            apb_packet  -     @3855                                                     
+  paddr                        integral    32    'hdc                                                      
+  pwdata                       integral    32    'he77b0d4e                                                
+  pwrite                       integral    1     'h0                                                       
+  deley                        integral    32    'h14                                                      
+  begin_time                   time        64    18000                                                     
+  depth                        int         32    'd2                                                       
+  parent sequence (name)       string      21    single_or_more_packet                                     
+  parent sequence (full name)  string      58    uvm_test_top.env.apb.agent.sequencer.single_or_more_packet
+  sequencer                    string      36    uvm_test_top.env.apb.agent.sequencer                      
+-----------------------------------------------------------------------------------------------------------
+
+UVM_INFO ../sv/apb_master_monitor.sv(34) @ 20100: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Start collecting Packet...
+UVM_INFO ../sv/apb_master_monitor.sv(49) @ 20100: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Packet Collected :
+%s---------------------------------
+Name      Type        Size  Value
+---------------------------------
+pkt       apb_packet  -     @3769
+  paddr   integral    32    'hdc 
+  pwdata  integral    32    'h0  
+  pwrite  integral    1     'h0  
+  deley   integral    32    'h0  
+---------------------------------
+
+UVM_INFO /apps/cadence/XCELIUM/22.03.002/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 22150: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO ../sv/apb_master_driver.sv(93) @ 22150: uvm_test_top.env.apb.agent.driver [apb_master_driver] Report: APB driver sent 16 packets
+UVM_INFO ../sv/apb_master_monitor.sv(53) @ 22150: uvm_test_top.env.apb.agent.monitor [apb_master_monitor] Report: APB Monitor Collected 16 Packets
+
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   56
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[TEST_DONE]     1
+[UVMTOP]     1
+[apb_master_driver]    18
+[apb_master_monitor]    34
+[single_or_more_packet]     1
+Simulation complete via $finish(1) at time 2215 NS + 46
+/apps/cadence/XCELIUM/22.03.002/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
+xcelium> 
